@@ -1,0 +1,10 @@
+.vs/
+TheTeamTracker.Mobile.Android/bin
+TheTeamTracker.Mobile.Android/obj
+TheTeamTracker.Mobile.iOS/bin
+TheTeamTracker.Mobile.iOS/obj
+TheTeamTracker.Mobile.DataLayer/bin
+TheTeamTracker.Mobile.DataLayer/obj
+**/*.user
+TheTeamTracker.Mobile/bin
+TheTeamTracker.Mobile/obj
