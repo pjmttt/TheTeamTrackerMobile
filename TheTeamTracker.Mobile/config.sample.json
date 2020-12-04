@@ -1,0 +1,4 @@
+﻿{
+	"ApiUrl": "http://mylocalapi:3000/api",
+	"Development": true
+}
