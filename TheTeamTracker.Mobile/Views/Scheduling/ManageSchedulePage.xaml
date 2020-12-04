@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Scheduling.ManageSchedulePage"
+			 xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 x:Name="manageSchedulePage">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_add_white" Clicked="Add_Clicked" Text="Add Bulk"></ToolbarItem>
+		<ToolbarItem Icon="ic_search_white.png" Command="{Binding ToggleFilterCommand}" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand" x:Name="stackMain">
+			<c:TTTDateNavigator x:Name="dateNavigator" Date="{Binding ScheduleDate}" DayIncrement="7" DateChangedCommand="{Binding LoadSchedulesCommand}" HorizontalOptions="FillAndExpand">
+			</c:TTTDateNavigator>
+			<StackLayout HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowFilter}" Margin="10, 0, 10, 0">
+				<c:TTTPicker Title="Employee" IsVisible="{Binding ShowFilter}" ItemsSource="{Binding Users}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedUser}" SelectedIndexChanged="Lookup_Changed"></c:TTTPicker>
+				<c:TTTPicker Title="Shift" IsVisible="{Binding ShowFilter}" ItemsSource="{Binding Shifts}" ItemDisplayBinding="{Binding ShiftName}" SelectedItem="{Binding SelectedShift}" SelectedIndexChanged="Lookup_Changed"></c:TTTPicker>
+				<c:TTTPicker Title="Task" IsVisible="{Binding ShowFilter}" ItemsSource="{Binding Tasks}" ItemDisplayBinding="{Binding TaskName}" SelectedItem="{Binding SelectedTask}" SelectedIndexChanged="Lookup_Changed"></c:TTTPicker>
+			</StackLayout>
+			<Label Text="No schedules for this week" Style="{DynamicResource TitleStyle}" IsVisible="{Binding NoSchedules}" Margin="10, 0, 0, 0" />
+			<ListView x:Name="SchedulesList"
+                          IsPullToRefreshEnabled="True"
+						  ItemTapped="Handle_ItemTapped"
+                          IsRefreshing="{Binding IsRefreshing}"
+                          RefreshCommand="{Binding LoadSchedulesCommand}"
+							ItemsSource="{Binding Schedules}"
+				  HasUnevenRows="True"
+				CachingStrategy="RecycleElement">
+
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+								<BoxView BackgroundColor="{Binding Tag2}" WidthRequest="10" VerticalOptions="FillAndExpand"></BoxView>
+								<StackLayout Padding="9" Margin="8, 0, 0, 0" HorizontalOptions="FillAndExpand">
+									<Label Text="{Binding Line1}" Style="{DynamicResource TitleStyle}" TextColor="{Binding Tag3}" />
+									<Label Text="{Binding Line2}" Style="{DynamicResource SubtitleStyle}"/>
+									<Label Text="{Binding Line3}" Style="{DynamicResource SubtitleStyle}"/>
+								</StackLayout>
+								<c:MenuButton>
+									<c:MenuButton.MenuItems>
+										<c:MenuButtonItem Text="Assign" IsVisible="{Binding Tag4}" Command="{Binding Path=BindingContext.AssignCommand, Source={x:Reference Name=manageSchedulePage}}" 
+													  CommandParameter="{Binding .}"></c:MenuButtonItem>
+										<c:MenuButtonItem Text="Post Trade" IsVisible="{Binding Tag6}" Command="{Binding Path=BindingContext.TradeCommand, Source={x:Reference Name=manageSchedulePage}}" 
+													  CommandParameter="{Binding .}"></c:MenuButtonItem>
+										<c:MenuButtonItem Text="Unassign" IsVisible="{Binding Tag5}" Command="{Binding Path=BindingContext.UnassignCommand, Source={x:Reference Name=manageSchedulePage}}" 
+													  CommandParameter="{Binding .}"></c:MenuButtonItem>
+										<c:MenuButtonItem Text="Delete" Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=manageSchedulePage}}" 
+													  CommandParameter="{Binding Tag}"></c:MenuButtonItem>
+									</c:MenuButton.MenuItems>
+								</c:MenuButton>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

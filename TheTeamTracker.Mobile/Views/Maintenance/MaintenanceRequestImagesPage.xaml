@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="clr-namespace:TheTeamTracker.Mobile.Views.Maintenance"
+			 x:Class="TheTeamTracker.Mobile.Views.Maintenance.MaintenanceRequestImagesPage"
+			 x:Name="imagesPage"
+			 Title="Maintenance Images">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_photo_camera_white.png" Command="{Binding ImagesViewModel.TakePictureCommand}" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="2">
+			<Label Text="{Binding ImagesViewModel.Request.RequestDescription}" FontSize="Small" />
+			<ScrollView>
+				<mi:MaintenanceRequestImagesView BindingContext="{Binding ImagesViewModel}" VerticalOptions="FillAndExpand" x:Name="imagesView"></mi:MaintenanceRequestImagesView>
+			</ScrollView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

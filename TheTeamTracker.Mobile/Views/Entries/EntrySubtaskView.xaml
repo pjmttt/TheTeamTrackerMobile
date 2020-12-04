@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Entries.EntrySubtaskView">
+	<ContentView.Content>
+		<StackLayout HorizontalOptions="FillAndExpand">
+			<Label x:Name="lblHeaderText" FontSize="Medium">
+			</Label>
+			<StackLayout HorizontalOptions="FillAndExpand" x:Name="stackStatuses" Orientation="Horizontal" IsVisible="{Binding IsNotGeneral}">
+			</StackLayout>
+			<StackLayout.GestureRecognizers>
+				<TapGestureRecognizer Tapped="Handle_ItemTapped"></TapGestureRecognizer>
+			</StackLayout.GestureRecognizers>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

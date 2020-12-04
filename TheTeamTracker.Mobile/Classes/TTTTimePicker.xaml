@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Classes.TTTTimePicker">
+  <ContentView.Content>
+		<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+			<TimePicker x:Name="timeMain" Time="{Binding TimeValue}" HorizontalOptions="FillAndExpand"></TimePicker>
+			<Button Image="ic_clear_black" HorizontalOptions="End" WidthRequest="35" HeightRequest="20" BackgroundColor="Transparent" BorderColor="Transparent"
+					Clicked="btn_Click"></Button>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

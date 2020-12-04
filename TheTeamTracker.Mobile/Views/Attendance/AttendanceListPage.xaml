@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+			 x:Class="TheTeamTracker.Mobile.Views.Attendance.AttendanceListPage"
+			 x:Name="attendanceListPage">
+	<ContentPage.ToolbarItems>
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand">
+			<Label Text="No Results" Style="{DynamicResource TitleStyle}" IsVisible="{Binding NoResults}" Margin="10,10,0,0"></Label>
+			<ListView x:Name="AttendanceList"
+				ItemTapped="Handle_ItemTapped"
+				CachingStrategy="RecycleElement">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Orientation="Horizontal">
+								<BoxView BackgroundColor="{Binding Tag2}" WidthRequest="10" VerticalOptions="FillAndExpand"></BoxView>
+								<StackLayout Padding="9" Margin="8, 0, 0, 0" HorizontalOptions="FillAndExpand">
+									<Label Text="{Binding Line1}" Style="{DynamicResource TitleStyle}" />
+									<Label Text="{Binding Line2}" Style="{DynamicResource SubtitleStyle}"/>
+									<Label Text="{Binding Line3}" IsVisible="{Binding Tag3}" Style="{DynamicResource ListItemDetailTextStyle}"/>
+									<!--<Label Text="BodyStyle" Style="{DynamicResource BodyStyle}"/>
+										<Label Text="BodyStyleKey" Style="{DynamicResource BodyStyleKey}"/>
+										<Label Text="CaptionStyle" Style="{DynamicResource CaptionStyle}"/>
+										<Label Text="CaptionStyleKey" Style="{DynamicResource CaptionStyleKey}"/>
+										<Label Text="ListItemDetailTextStyle" Style="{DynamicResource ListItemDetailTextStyle}"/>
+										<Label Text="ListItemDetailTextStyleKey" Style="{DynamicResource ListItemDetailTextStyleKey}"/>
+										<Label Text="ListItemTextStyle" Style="{DynamicResource ListItemTextStyle}"/>
+										<Label Text="ListItemTextStyleKey" Style="{DynamicResource ListItemTextStyleKey}"/>
+										<Label Text="SubtitleStyle" Style="{DynamicResource SubtitleStyle}"/>
+										<Label Text="SubtitleStyleKey" Style="{DynamicResource SubtitleStyleKey}"/>
+										<Label Text="TitleStyle" Style="{DynamicResource TitleStyle}"/>
+										<Label Text="TitleStyleKey" Style="{DynamicResource TitleStyleKey}"/>-->
+								</StackLayout>
+								<c:MenuButton IsVisible="{Binding Path=BindingContext.NotForUser, Source={x:Reference Name=attendanceListPage}}">
+									<c:MenuButton.MenuItems>
+										<c:MenuButtonItem 
+												Text="Edit"
+												Clicked="Edit_Clicked"
+												CommandParameter="{Binding Tag}">
+										</c:MenuButtonItem>
+										<c:MenuButtonItem Text="Delete" Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=attendanceListPage}}" 
+													  CommandParameter="{Binding .}"></c:MenuButtonItem>
+									</c:MenuButton.MenuItems>
+								</c:MenuButton>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

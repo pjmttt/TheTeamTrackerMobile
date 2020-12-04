@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 x:Class="TheTeamTracker.Mobile.Views.Scheduling.TradeViewPage">
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout Padding="6" Margin="8, 0, 0, 0" VerticalOptions="CenterAndExpand">
+				<Label Text="{Binding TradeListItem.Schedule.Line1}" IsVisible="{Binding TradeListItem.Schedule.Tag2}" TextColor="{Binding TradeListItem.TextColor}" FontSize="Medium"></Label>
+				<Label Text="{Binding TradeListItem.Schedule.Line2}" FontSize="Medium" TextColor="{Binding TradeListItem.TextColor}"></Label>
+				<Label Text="{Binding TradeListItem.Schedule.Line3}" FontSize="Medium" TextColor="{Binding TradeListItem.TextColor}"></Label>
+				<Label Text="{Binding TradeListItem.Schedule.Line4}" FontSize="Medium" TextColor="{Binding TradeListItem.TextColor}"></Label>
+
+				<Label Text="{Binding TradeListItem.ToSchedule.Tag3}" IsVisible="{Binding TradeListItem.ToSchedule.Tag2}" Margin="0, 10, 0, 0"></Label>
+				<Label Text="{Binding TradeListItem.ToSchedule.Line1}" FontSize="Medium" IsVisible="{Binding TradeListItem.ToSchedule.Tag2}" TextColor="{Binding TradeListItem.TextColor}" Margin="0, 10, 0, 0"></Label>
+				<Label Text="{Binding TradeListItem.ToSchedule.Line2}" FontSize="Medium" IsVisible="{Binding TradeListItem.ToSchedule.Tag2}" TextColor="{Binding TradeListItem.TextColor}"></Label>
+				<Label Text="{Binding TradeListItem.ToSchedule.Line3}" FontSize="Medium" IsVisible="{Binding TradeListItem.ToSchedule.Tag2}" TextColor="{Binding TradeListItem.TextColor}"></Label>
+				<Label Text="{Binding TradeListItem.ToSchedule.Line4}" FontSize="Medium" IsVisible="{Binding TradeListItem.ToSchedule.Tag2}" TextColor="{Binding TradeListItem.TextColor}"></Label>
+
+				<Label Text="{Binding TradeListItem.InfoColumn.Line1}" FontSize="Medium" TextColor="{Binding TradeListItem.TextColor}" Margin="0, 10, 0, 0"></Label>
+				<Label Text="{Binding TradeListItem.ScheduleTrade.Comments}" FontSize="Medium" IsVisible="{Binding DisallowCommentEdit}" TextColor="{Binding TradeListItem.TextColor}"></Label>
+				<c:TextArea Text="{Binding TradeListItem.ScheduleTrade.Comments}" IsVisible="{Binding AllowCommentEdit}" />
+
+				<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition></RowDefinition>
+						</Grid.RowDefinitions>
+						<Button BackgroundColor="Blue" TextColor="White" Text="Accept" Grid.Row="0" Grid.Column="0" IsVisible="{Binding ShowAcceptDecline}" Command="{Binding AcceptCommand}"></Button>
+						<Button BackgroundColor="Red" TextColor="White" Text="Decline" Grid.Row="0" Grid.Column="1" IsVisible="{Binding ShowAcceptDecline}" Command="{Binding DeclineCommand}"></Button>
+						<Button BackgroundColor="Blue" TextColor="White" Text="Approve" Grid.Row="0" Grid.Column="0" IsVisible="{Binding ShowApproveDeny}" Command="{Binding ApproveCommand}"></Button>
+						<Button BackgroundColor="Red" TextColor="White" Text="Deny" Grid.Row="0" Grid.Column="1" IsVisible="{Binding ShowApproveDeny}" Command="{Binding DenyCommand}"></Button>
+					</Grid>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

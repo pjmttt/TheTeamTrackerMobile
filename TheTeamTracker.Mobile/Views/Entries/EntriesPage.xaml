@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Entries.EntriesPage"
+			 xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 xmlns:e="clr-namespace:TheTeamTracker.Mobile.Views.Entries"
+			 x:Name="entriesPage">
+	<ContentPage.ToolbarItems>
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand" x:Name="stackMain">
+			<c:TTTDateNavigator Date="{Binding EntryDate}" IsVisible="{Binding NotForSearch}" DateChangedCommand="{Binding LoadEntriesCommand}" HorizontalOptions="FillAndExpand">
+			</c:TTTDateNavigator>
+			<StackLayout IsVisible="{Binding ShowFilter}" HorizontalOptions="FillAndExpand" Padding="10, 0, 10, 0">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<DatePicker Date="{Binding StartDate}" HorizontalOptions="FillAndExpand"></DatePicker>
+					<DatePicker Date="{Binding EndDate}" HorizontalOptions="FillAndExpand"></DatePicker>
+				</StackLayout>
+				<c:TTTPicker Title="Employee" ItemsSource="{Binding Users}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedUser}"></c:TTTPicker>
+				<c:TTTPicker Title="Task" ItemsSource="{Binding Tasks}" ItemDisplayBinding="{Binding TaskName}" SelectedItem="{Binding SelectedTask}"></c:TTTPicker>
+				<Button HorizontalOptions="FillAndExpand"
+					BackgroundColor="Navy"
+					TextColor="White"
+					Margin="2"
+					Text="Search" 
+					Clicked="Search_Changed"
+				/>
+			</StackLayout>
+			<Label Text="No Duties Found" Style="{DynamicResource TitleStyle}" IsVisible="{Binding NoEntries}" Margin="10,0,0,0"></Label>
+			<ListView ItemsSource="{Binding Entries}" 
+					  IsPullToRefreshEnabled="True" 
+					  IsRefreshing="{Binding IsRefreshing}"
+						RefreshCommand="{Binding LoadEntriesCommand}" 
+					  HasUnevenRows="True" 
+					  HorizontalOptions="FillAndExpand" 
+					  Margin="3,0,5,0" 
+					  x:Name="EntriesList"
+						  VerticalOptions="FillAndExpand">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout HorizontalOptions="FillAndExpand" Margin="4,0,0,7">
+								<e:EntrySubtaskView 
+									IsNotGeneral="{Binding Path=BindingContext.IsNotGeneral, Source={x:Reference Name=entriesPage}}"
+									ForUser="{Binding Path=BindingContext.ForUser, Source={x:Reference Name=entriesPage}}"
+									ForSearch="{Binding Path=BindingContext.ForSearch, Source={x:Reference Name=entriesPage}}">
+								</e:EntrySubtaskView>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

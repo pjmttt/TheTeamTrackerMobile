@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Entries.AvailableEntryEditPage"
+			 Title="Available Duty">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_save_white.png" Command="{Binding SaveCommand}" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout HorizontalOptions="FillAndExpand">
+				<StackLayout HorizontalOptions="FillAndExpand" Padding="15">
+					<Label Text="Task" FontSize="Micro" Margin="0,10,0,0"/>
+					<c:TTTPicker ItemsSource="{Binding Tasks}" ItemDisplayBinding="{Binding TaskName}" SelectedItem="{Binding Entry.Task}"></c:TTTPicker>
+
+					<Label Text="Comments" FontSize="Micro" Margin="0,10,0,0" />
+					<c:TextArea EditorHeight="60" Text="{Binding Entry.Comments}" />
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

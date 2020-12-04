@@ -1,0 +1,71 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Scheduling.UserAvailabilityEditPage"
+			 Title="Availability">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_save_white.png" Command="{Binding SaveCommand}" CommandParameter="0" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand" Padding="15">
+			<Label Text="Employee" FontSize="Micro" Margin="0,10,0,0" IsVisible="{Binding NotForUser}" />
+			<c:TTTPicker ItemsSource="{Binding Users}" IsVisible="{Binding ShowUserPicker}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding UserAvailability.User}"></c:TTTPicker>
+			<Label IsVisible="{Binding ShowUserLabel}" Text="{Binding UserAvailability.User.DisplayName}" FontSize="Medium"></Label>
+
+			<Label Text="All Day" FontSize="Micro" Margin="0,10,0,0" />
+			<Switch IsToggled="{Binding AllDay}" HorizontalOptions="Start"></Switch>
+
+			<Label Text="Start Time *" FontSize="Micro" Margin="0,10,0,0" IsVisible="{Binding NotAllDay}" />
+			<TimePicker Time="{Binding StartTime}" IsVisible="{Binding NotAllDay}"></TimePicker>
+
+			<Label Text="End Time *" FontSize="Micro" Margin="0,10,0,0" IsVisible="{Binding NotAllDay}" />
+			<TimePicker Time="{Binding EndTime}" IsVisible="{Binding NotAllDay}"></TimePicker>
+
+			<Label IsVisible="{Binding IsNotNew}" Text="{Binding DayName}" FontSize="Medium"></Label>
+
+			<Grid IsVisible="{Binding IsNew}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition></RowDefinition>
+					<RowDefinition></RowDefinition>
+					<RowDefinition></RowDefinition>
+					<RowDefinition></RowDefinition>
+					<RowDefinition></RowDefinition>
+					<RowDefinition></RowDefinition>
+				</Grid.RowDefinitions>
+				<Label Text="Mon" Grid.Column="0" Grid.Row="0" Margin="0, 10, 0, 0"></Label>
+				<Label Text="Tue" Grid.Column="1" Grid.Row="0" Margin="0, 10, 0, 0"></Label>
+				<Label Text="Wed" Grid.Column="2" Grid.Row="0" Margin="0, 10, 0, 0"></Label>
+				<Label Text="Thu" Grid.Column="0" Grid.Row="2" Margin="0, 10, 0, 0"></Label>
+				<Label Text="Fri" Grid.Column="1" Grid.Row="2" Margin="0, 10, 0, 0"></Label>
+				<Label Text="Sat" Grid.Column="2" Grid.Row="2" Margin="0, 10, 0, 0"></Label>
+				<Label Text="Sun" Grid.Column="0" Grid.Row="4" Margin="0, 10, 0, 0"></Label>
+				<Switch IsToggled="{Binding Monday}" Grid.Column="0" Grid.Row="1" HorizontalOptions="Start"></Switch>
+				<Switch IsToggled="{Binding Tuesday}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"></Switch>
+				<Switch IsToggled="{Binding Wednesday}" Grid.Column="2" Grid.Row="1" HorizontalOptions="Start"></Switch>
+				<Switch IsToggled="{Binding Thursday}" Grid.Column="0" Grid.Row="3" HorizontalOptions="Start"></Switch>
+				<Switch IsToggled="{Binding Friday}" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"></Switch>
+				<Switch IsToggled="{Binding Saturday}" Grid.Column="2" Grid.Row="3" HorizontalOptions="Start"></Switch>
+				<Switch IsToggled="{Binding Sunday}" Grid.Column="0" Grid.Row="5" HorizontalOptions="Start"></Switch>
+			</Grid>
+
+			<!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" IsVisible="{Binding NotForUser}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition></RowDefinition>
+						</Grid.RowDefinitions>
+						<Button BackgroundColor="Blue" TextColor="White" Text="Approve" Grid.Row="0" Grid.Column="0" IsVisible="{Binding IsNotNew}" CommandParameter="1" Command="{Binding SaveCommand}"></Button>
+						<Button BackgroundColor="Red" TextColor="White" Text="Deny" Grid.Row="0" Grid.Column="1" IsVisible="{Binding IsNotNew}" CommandParameter="2" Command="{Binding SaveCommand}"></Button>
+					</Grid>
+				</StackLayout>-->
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

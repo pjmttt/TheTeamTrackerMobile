@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 x:Class="TheTeamTracker.Mobile.Views.Connect.EmailStaffPage"
+			 x:Name="emailStaffPage"
+			 xmlns:repeater="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.RepeaterView">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Send" Command="{Binding SendCommand}" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout HorizontalOptions="FillAndExpand" Padding="15">
+				<StackLayout Orientation="Horizontal">
+					<Label Text="All Staff" FontSize="Small" />
+					<Switch IsToggled="{Binding AllStaff}"></Switch>
+				</StackLayout>
+
+				<!--<Label Text="{Binding RecipientsText}" FontSize="Small" IsVisible="{Binding NotAllStaff}" />-->
+				<repeater:RepeaterView ItemsSource="{Binding Recipients}" IsVisible="{Binding NotAllStaff}">
+					<repeater:RepeaterView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<Label Text="{Binding DisplayName}" FontSize="Medium">
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.RemoveRecipientCommand, Source={x:Reference Name=emailStaffPage}}"></TapGestureRecognizer>
+									</Label.GestureRecognizers>
+								</Label>
+							</ViewCell>
+						</DataTemplate>
+					</repeater:RepeaterView.ItemTemplate>
+				</repeater:RepeaterView>
+
+				<c:TTTPicker Title="Position" ItemsSource="{Binding Positions}" IsVisible="{Binding NotAllStaff}" ItemDisplayBinding="{Binding PositionName}" SelectedItem="{Binding SelectedPosition}" SelectedIndexChanged="Position_Changed"></c:TTTPicker>
+				<c:TTTPicker Title="Employee" ItemsSource="{Binding Users}" IsVisible="{Binding NotAllStaff}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedUser}" SelectedIndexChanged="User_Changed"></c:TTTPicker>
+
+				<Label Text="Subject *" FontSize="Micro" Margin="0, 10, 0, 0" />
+				<Entry Text="{Binding UserComment.Subject}" FontSize="Small" />
+
+				<Label Text="Message *" FontSize="Micro" Margin="0, 10, 0, 0" />
+				<c:TextArea Text="{Binding UserComment.Comment}" />
+
+				<StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0">
+					<Label Text="Email" FontSize="Micro"></Label>
+					<Switch IsToggled="{Binding UserComment.SendEmailValue}"></Switch>
+					<Label Text="Text" FontSize="Micro" Margin="30, 0, 0, 0"></Label>
+					<Switch IsToggled="{Binding UserComment.SendTextValue}"></Switch>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

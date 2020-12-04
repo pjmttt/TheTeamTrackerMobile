@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 x:Class="TheTeamTracker.Mobile.Views.Attendance.AttendanceEditPage"
+			 Title="Attendance">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_save_white.png" Command="{Binding SaveCommand}" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout HorizontalOptions="FillAndExpand" Padding="15">
+				<Label Text="Date" FontSize="Micro" />
+				<DatePicker Date="{Binding Attendance.AttendanceDateValue}"></DatePicker>
+
+				<Label Text="Employee" FontSize="Micro" Margin="0,10,0,0" />
+				<c:TTTPicker ItemsSource="{Binding Users}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding Attendance.User}"></c:TTTPicker>
+
+				<Label Text="Reason" FontSize="Micro" Margin="0,10,0,0" />
+				<c:TTTPicker ItemsSource="{Binding Reasons}" ItemDisplayBinding="{Binding ReasonName}" SelectedItem="{Binding Attendance.AttendanceReason}"></c:TTTPicker>
+
+				<Label Text="Comments" FontSize="Micro" Margin="0,10,0,0" />
+				<c:TextArea Text="{Binding Attendance.Comments}" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

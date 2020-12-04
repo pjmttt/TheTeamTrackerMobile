@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Scheduling.HoursPage"
+			 xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 x:Name="hoursPage">
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand">
+			<StackLayout IsVisible="{Binding ShowFilter}" HorizontalOptions="FillAndExpand" Padding="10, 0, 10, 0">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<DatePicker Date="{Binding StartDate}" DateSelected="dates_Changed" HorizontalOptions="FillAndExpand"></DatePicker>
+					<DatePicker Date="{Binding EndDate}" DateSelected="dates_Changed" HorizontalOptions="FillAndExpand"></DatePicker>
+				</StackLayout>
+				<c:TTTPicker Title="Employee" x:Name="employeePicker" ItemsSource="{Binding Users}" IsVisible="{Binding CanChangeEmployee}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedUser}" SelectedIndexChanged="Lookup_Changed"></c:TTTPicker>
+			</StackLayout>
+			<ListView x:Name="HoursList"
+				CachingStrategy="RecycleElement">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+								<BoxView BackgroundColor="{Binding Tag2}" WidthRequest="10" VerticalOptions="FillAndExpand"></BoxView>
+								<StackLayout Padding="6" Margin="8, 0, 0, 0" HorizontalOptions="FillAndExpand">
+									<Label Text="{Binding Line1}" Style="{DynamicResource TitleStyle}" IsVisible="{Binding Path=BindingContext.ShowEmployee, Source={x:Reference Name=hoursPage}}" ></Label>
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*"></ColumnDefinition>
+											<ColumnDefinition Width="*"></ColumnDefinition>
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition></RowDefinition>
+											<RowDefinition></RowDefinition>
+										</Grid.RowDefinitions>
+										<Label Text="{Binding Line2}" Style="{DynamicResource SubtitleStyle}" Grid.Column="0" Grid.Row="0"></Label>
+										<Label Text="{Binding Tag3}" Style="{DynamicResource SubtitleStyle}" Grid.Column="1" Grid.Row="0"></Label>
+										<Label Text="{Binding Line3}" Style="{DynamicResource SubtitleStyle}" Grid.Column="0" Grid.Row="1"></Label>
+										<Label Text="{Binding Line4}" Style="{DynamicResource SubtitleStyle}" Grid.Column="1" Grid.Row="1"></Label>
+									</Grid>
+									<Label Text="{Binding Tag.Notes}" Style="{DynamicResource SubtitleStyle}" IsVisible="{Binding Tag4}" ></Label>
+								</StackLayout>
+								<c:MenuButton>
+									<c:MenuButton.MenuItems>
+										<c:MenuButtonItem Text="Edit" Clicked="Edit_Clicked" CommandParameter="{Binding Tag}"></c:MenuButtonItem>
+										<c:MenuButtonItem IsVisible="{Binding Tag5}" Text="Approve" Command="{Binding Path=BindingContext.ApproveCommand, Source={x:Reference Name=hoursPage}}" 
+													  CommandParameter="{Binding Tag}"></c:MenuButtonItem>
+										<c:MenuButtonItem IsVisible="{Binding Tag5}" Text="Deny" Command="{Binding Path=BindingContext.DenyCommand, Source={x:Reference Name=hoursPage}}" 
+													  CommandParameter="{Binding Tag}"></c:MenuButtonItem>
+										<c:MenuButtonItem Text="Delete" Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=hoursPage}}" 
+													  CommandParameter="{Binding .}" IsDestructive="True"></c:MenuButtonItem>
+									</c:MenuButton.MenuItems>
+								</c:MenuButton>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

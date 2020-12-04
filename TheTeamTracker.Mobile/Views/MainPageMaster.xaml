@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.MainPageMaster"
+			 Icon="ic_menu_white.png"
+			 Title="TTT">
+	<StackLayout>
+		<ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+				  IsVisible="True"
+              ItemsSource="{Binding MenuItems}"
+				  Margin="0, 13, 0, 0" >
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Padding="15,10" HorizontalOptions="FillAndExpand" IsVisible="{Binding CanSeeMenu}">
+							<StackLayout Orientation="Horizontal">
+								<Image Source="{Binding Image}" WidthRequest="24" HeightRequest="24"></Image>
+								<Label VerticalOptions="FillAndExpand" 
+                    VerticalTextAlignment="Center" 
+									   FontSize="Medium"
+                    Text="{Binding Title}" 
+									   Margin="7, 0, 0, 0" Style="{DynamicResource SubtitleStyle}" />
+								<Image Source="ic_keyboard_arrow_right_black" IsVisible="{Binding HasChildren}" WidthRequest="18" HeightRequest="18"></Image>
+							</StackLayout>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+</ContentPage>

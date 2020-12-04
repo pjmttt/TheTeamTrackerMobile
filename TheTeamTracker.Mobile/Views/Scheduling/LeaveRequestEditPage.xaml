@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Scheduling.LeaveRequestEditPage"
+			 Title="Time Off">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_save_white.png" Command="{Binding SaveCommand}" CommandParameter="0" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout HorizontalOptions="FillAndExpand" Padding="15">
+				<c:TTTPicker ItemsSource="{Binding RequestTypeOptions}" SelectedItem="{Binding RequestType}" IsVisible="{Binding NotReadOnly}"></c:TTTPicker>
+
+				<Label Text="Assigned To" FontSize="Micro" Margin="0,10,0,0" IsVisible="{Binding NotForUser}" />
+				<c:TTTPicker ItemsSource="{Binding Users}" IsVisible="{Binding NotForUser}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding LeaveRequest.User}"></c:TTTPicker>
+
+				<Label Text="Start Date *" FontSize="Micro" Margin="0,10,0,0" />
+				<DatePicker Date="{Binding StartDate}"></DatePicker>
+
+				<Label Text="Start Time *" FontSize="Micro" Margin="0,10,0,0" IsVisible="{Binding IsPartialDay}" />
+				<TimePicker Time="{Binding StartTime}" IsVisible="{Binding IsPartialDay}"></TimePicker>
+
+				<Label Text="End Date *" FontSize="Micro" Margin="0,10,0,0" IsVisible="{Binding IsMultiDay}" />
+				<DatePicker Date="{Binding EndDate}" IsVisible="{Binding IsMultiDay}"></DatePicker>
+
+				<Label Text="End Time *" FontSize="Micro" Margin="0,10,0,0" IsVisible="{Binding IsPartialDay}" />
+				<TimePicker Time="{Binding EndTime}" IsVisible="{Binding IsPartialDay}"></TimePicker>
+
+				<Label Text="Reason" FontSize="Micro" Margin="0, 10, 0, 0" />
+				<c:TextArea Text="{Binding LeaveRequest.Reason}" />
+
+				<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End">
+					<Grid IsVisible="{Binding CanApproveDeny}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+							<ColumnDefinition Width="*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition></RowDefinition>
+						</Grid.RowDefinitions>
+						<Button BackgroundColor="Blue" TextColor="White" Text="Approve" Grid.Row="0" Grid.Column="0" IsVisible="{Binding NotForUser}" Command="{Binding SaveCommand}" CommandParameter="1"></Button>
+						<Button BackgroundColor="Red" TextColor="White" Text="Deny" Grid.Row="0" Grid.Column="1" IsVisible="{Binding NotForUser}" Command="{Binding SaveCommand}" CommandParameter="2"></Button>
+					</Grid>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

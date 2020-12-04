@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Classes.TTTDateNavigator"
+			 xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes">
+  <ContentView.Content>
+		<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, 5, 0, 0">
+			<c:TTTNavigateLeft x:Name="left" Clicked="left_Clicked" HorizontalOptions="Start" Margin="20, 0, 0, 0">
+			</c:TTTNavigateLeft>
+			<Label Text="{Binding DateFormatted}" x:Name="lblFormatted" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Style="{DynamicResource TitleStyle}"  />
+			<c:TTTNavigateRight Clicked="right_Clicked" HorizontalOptions="End" Margin="0, 0, 20, 0">
+			</c:TTTNavigateRight>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

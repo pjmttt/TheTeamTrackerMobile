@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Classes.TTTDatePicker">
+	<ContentView.Content>
+		<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+			<DatePicker x:Name="dateMain" Date="{Binding DateValue}" HorizontalOptions="FillAndExpand"></DatePicker>
+			<Button Image="ic_clear_black" HorizontalOptions="End" WidthRequest="35" HeightRequest="20" BackgroundColor="Transparent" BorderColor="Transparent"
+					Clicked="btn_Click"></Button>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1827FDA4-48A0-4074-9C14-A37818CB64D8}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TheTeamTracker.Mobile.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>TheTeamTracker.Mobile.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ReleaseVersion>1.0.4</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>
+    </CodesignProvision>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignProvision>VS: com.redeemtechnology.TheTeamTracker Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Petrus Martins (A8XLJR7Q46)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>iOS Devices</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution: Petrus Martins (PHYHZHM26S)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CopyAppBundle>true</CopyAppBundle>
+    <CodesignProvision>TheTeamTracker</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>VS: com.redeemtechnology.TheTeamTracker Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Petrus Martins (A8XLJR7Q46)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CopyAppBundle>true</CopyAppBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignProvision>VS: com.redeemtechnology.TheTeamTracker Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Petrus Martins (A8XLJR7Q46)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>false</BuildIpa>
+    <CopyAppBundle>true</CopyAppBundle>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugQA|iPhoneSimulator'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\iPhoneSimulator\DebugQA\</OutputPath>
+    <DefineConstants>DEBUG;__IOS__;__MOBILE__;__UNIFIED__;DebugQA</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>VS: com.redeemtechnology.TheTeamTracker Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Petrus Martins (A8XLJR7Q46)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugQA|iPhone'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\iPhone\DebugQA\</OutputPath>
+    <DefineConstants>DEBUG;__IOS__;__MOBILE__;__UNIFIED__;DebugQA</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+    <CodesignKey>iPhone Developer: Petrus Martins (A8XLJR7Q46)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugPROD|iPhoneSimulator'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\iPhoneSimulator\DebugPROD\</OutputPath>
+    <DefineConstants>DEBUG;__IOS__;__MOBILE__;__UNIFIED__;DebugPROD</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>
+    </CodesignProvision>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugPROD|iPhone'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\iPhone\DebugPROD\</OutputPath>
+    <DefineConstants>DEBUG;__IOS__;__MOBILE__;__UNIFIED__;DebugPROD</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Maggie Stuff</CodesignProvision>
+    <CodesignKey>iPhone Developer: Petrus Martins (A8XLJR7Q46)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="GeoLocationHelper.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <BundleResource Include="..\TheTeamTracker.Mobile\config.json">
+      <Link>config.json</Link>
+    </BundleResource>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-83.5@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small-40@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-Small@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <BundleResource Include="..\TheTeamTracker.Mobile\config.dev.json">
+      <Link>config.dev.json</Link>
+    </BundleResource>
+    <BundleResource Include="..\TheTeamTracker.Mobile\config.qa.json">
+      <Link>config.qa.json</Link>
+    </BundleResource>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-568h@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-Portrait.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-Portrait@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\login_logo.imageset\blue_on_white.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\login_logo.imageset\blue_on_white_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\login_logo.imageset\blue_on_white_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\login_logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <None Include="Entitlements.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.469394-pre1" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_about%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_about%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_feed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_feed%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_feed%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheTeamTracker.Mobile\TheTeamTracker.Mobile.csproj">
+      <Project>{8FE4CF45-7D2A-4D75-B9FD-DC2A8E8E4400}</Project>
+      <Name>TheTeamTracker.Mobile</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-83.5%402x.png" />
+    <BundleResource Include="Resources\Icon-1024.png" />
+    <BundleResource Include="Resources\Icon-20.png" />
+    <BundleResource Include="Resources\Icon-60.png" />
+    <BundleResource Include="Resources\screenshot1.png" />
+    <BundleResource Include="Resources\screenshot2.png" />
+    <BundleResource Include="Resources\logo_transparent.png" />
+    <BundleResource Include="Resources\ic_phone_black.png" />
+    <BundleResource Include="Resources\ic_phone_black%402x.png" />
+    <BundleResource Include="Resources\ic_phone_black%403x.png" />
+    <BundleResource Include="Resources\ic_assignment_ind_black.png" />
+    <BundleResource Include="Resources\ic_assignment_ind_black%402x.png" />
+    <BundleResource Include="Resources\ic_assignment_ind_black%403x.png" />
+    <BundleResource Include="Resources\ic_assignment_black.png" />
+    <BundleResource Include="Resources\ic_assignment_black%402x.png" />
+    <BundleResource Include="Resources\ic_assignment_black%403x.png" />
+    <BundleResource Include="Resources\ic_assignment_turned_in_black.png" />
+    <BundleResource Include="Resources\ic_assignment_turned_in_black%402x.png" />
+    <BundleResource Include="Resources\ic_assignment_turned_in_black%403x.png" />
+    <BundleResource Include="Resources\ic_access_alarm_black.png" />
+    <BundleResource Include="Resources\ic_access_alarm_black%402x.png" />
+    <BundleResource Include="Resources\ic_access_alarm_black%403x.png" />
+    <BundleResource Include="Resources\ic_access_time_black.png" />
+    <BundleResource Include="Resources\ic_access_time_black%402x.png" />
+    <BundleResource Include="Resources\ic_access_time_black%403x.png" />
+    <BundleResource Include="Resources\ic_check_black.png" />
+    <BundleResource Include="Resources\ic_check_black%402x.png" />
+    <BundleResource Include="Resources\ic_check_black%403x.png" />
+    <BundleResource Include="Resources\ic_done_all_black.png" />
+    <BundleResource Include="Resources\ic_done_all_black%402x.png" />
+    <BundleResource Include="Resources\ic_done_all_black%403x.png" />
+    <BundleResource Include="Resources\ic_event_black.png" />
+    <BundleResource Include="Resources\ic_event_black%402x.png" />
+    <BundleResource Include="Resources\ic_event_black%403x.png" />
+    <BundleResource Include="Resources\ic_event_available_black.png" />
+    <BundleResource Include="Resources\ic_event_available_black%402x.png" />
+    <BundleResource Include="Resources\ic_event_available_black%403x.png" />
+    <BundleResource Include="Resources\ic_event_note_black.png" />
+    <BundleResource Include="Resources\ic_event_note_black%402x.png" />
+    <BundleResource Include="Resources\ic_event_note_black%403x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_left_black.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_left_black%402x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_left_black%403x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_right_black.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_right_black%402x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_right_black%403x.png" />
+    <BundleResource Include="Resources\ic_people_black.png" />
+    <BundleResource Include="Resources\ic_people_black%402x.png" />
+    <BundleResource Include="Resources\ic_people_black%403x.png" />
+    <BundleResource Include="Resources\ic_person_black.png" />
+    <BundleResource Include="Resources\ic_person_black%402x.png" />
+    <BundleResource Include="Resources\ic_person_black%403x.png" />
+    <BundleResource Include="Resources\ic_playlist_add_check_black.png" />
+    <BundleResource Include="Resources\ic_playlist_add_check_black%402x.png" />
+    <BundleResource Include="Resources\ic_playlist_add_check_black%403x.png" />
+    <BundleResource Include="Resources\ic_repeat_black.png" />
+    <BundleResource Include="Resources\ic_repeat_black%402x.png" />
+    <BundleResource Include="Resources\ic_repeat_black%403x.png" />
+    <BundleResource Include="Resources\ic_swap_horiz_black.png" />
+    <BundleResource Include="Resources\ic_swap_horiz_black%402x.png" />
+    <BundleResource Include="Resources\ic_swap_horiz_black%403x.png" />
+    <BundleResource Include="Resources\ic_flight_takeoff_black.png" />
+    <BundleResource Include="Resources\ic_flight_takeoff_black%402x.png" />
+    <BundleResource Include="Resources\ic_flight_takeoff_black%403x.png" />
+    <BundleResource Include="Resources\ic_airplanemode_active_black.png" />
+    <BundleResource Include="Resources\ic_airplanemode_active_black%402x.png" />
+    <BundleResource Include="Resources\ic_airplanemode_active_black%403x.png" />
+    <BundleResource Include="Resources\ic_thumb_up_black.png" />
+    <BundleResource Include="Resources\ic_thumb_up_black%402x.png" />
+    <BundleResource Include="Resources\ic_thumb_up_black%403x.png" />
+    <BundleResource Include="Resources\ic_thumbs_up_down_black.png" />
+    <BundleResource Include="Resources\ic_thumbs_up_down_black%402x.png" />
+    <BundleResource Include="Resources\ic_thumbs_up_down_black%403x.png" />
+    <BundleResource Include="Resources\ic_build_black.png" />
+    <BundleResource Include="Resources\ic_build_black%402x.png" />
+    <BundleResource Include="Resources\ic_build_black%403x.png" />
+    <BundleResource Include="Resources\ic_shopping_basket_black.png" />
+    <BundleResource Include="Resources\ic_shopping_basket_black%402x.png" />
+    <BundleResource Include="Resources\ic_shopping_basket_black%403x.png" />
+    <BundleResource Include="Resources\ic_mail_black.png" />
+    <BundleResource Include="Resources\ic_mail_black%402x.png" />
+    <BundleResource Include="Resources\ic_mail_black%403x.png" />
+    <BundleResource Include="Resources\ic_update_black.png" />
+    <BundleResource Include="Resources\ic_update_black%402x.png" />
+    <BundleResource Include="Resources\ic_update_black%403x.png" />
+    <BundleResource Include="Resources\ic_restore_black.png" />
+    <BundleResource Include="Resources\ic_restore_black%402x.png" />
+    <BundleResource Include="Resources\ic_restore_black%403x.png" />
+    <BundleResource Include="Resources\ic_settings_black.png" />
+    <BundleResource Include="Resources\ic_settings_black%402x.png" />
+    <BundleResource Include="Resources\ic_settings_black%403x.png" />
+    <BundleResource Include="Resources\ic_input_black.png" />
+    <BundleResource Include="Resources\ic_input_black%402x.png" />
+    <BundleResource Include="Resources\ic_input_black%403x.png" />
+    <BundleResource Include="Resources\ic_add_white.png" />
+    <BundleResource Include="Resources\ic_add_white%402x.png" />
+    <BundleResource Include="Resources\ic_add_white%403x.png" />
+    <BundleResource Include="Resources\ic_save_white.png" />
+    <BundleResource Include="Resources\ic_save_white%402x.png" />
+    <BundleResource Include="Resources\ic_save_white%403x.png" />
+    <BundleResource Include="Resources\ic_input_white.png" />
+    <BundleResource Include="Resources\ic_input_white%402x.png" />
+    <BundleResource Include="Resources\ic_input_white%403x.png" />
+    <BundleResource Include="Resources\ic_search_white.png" />
+    <BundleResource Include="Resources\ic_search_white%402x.png" />
+    <BundleResource Include="Resources\ic_search_white%403x.png" />
+    <BundleResource Include="Resources\ic_photo_camera_white.png" />
+    <BundleResource Include="Resources\ic_photo_camera_white%402x.png" />
+    <BundleResource Include="Resources\ic_photo_camera_white%403x.png" />
+    <BundleResource Include="Resources\ic_menu_white.png" />
+    <BundleResource Include="Resources\ic_menu_white%402x.png" />
+    <BundleResource Include="Resources\ic_menu_white%403x.png" />
+    <BundleResource Include="Resources\ic_more_vert_black.png" />
+    <BundleResource Include="Resources\ic_more_vert_black%402x.png" />
+    <BundleResource Include="Resources\ic_more_vert_black%403x.png" />
+    <BundleResource Include="Resources\ic_clear_black.png" />
+    <BundleResource Include="Resources\ic_clear_black%402x.png" />
+    <BundleResource Include="Resources\ic_clear_black%403x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_left_white.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_left_white%402x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_left_white%403x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_right_white.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_right_white%402x.png" />
+    <BundleResource Include="Resources\ic_keyboard_arrow_right_white%403x.png" />
+    <BundleResource Include="Resources\ic_sort_by_alpha_white.png" />
+    <BundleResource Include="Resources\ic_sort_by_alpha_white%402x.png" />
+    <BundleResource Include="Resources\ic_sort_by_alpha_white%403x.png" />
+    <BundleResource Include="Resources\ic_search_black.png" />
+    <BundleResource Include="Resources\ic_search_black%402x.png" />
+    <BundleResource Include="Resources\ic_search_black%403x.png" />
+    <BundleResource Include="Resources\ic_reply_white.png" />
+    <BundleResource Include="Resources\ic_reply_white%402x.png" />
+    <BundleResource Include="Resources\ic_reply_white%403x.png" />
+    <BundleResource Include="Resources\ic_photo_black.png" />
+    <BundleResource Include="Resources\ic_photo_black%402x.png" />
+    <BundleResource Include="Resources\ic_photo_black%403x.png" />
+    <BundleResource Include="Resources\ic_reply_black.png" />
+    <BundleResource Include="Resources\ic_reply_black%402x.png" />
+    <BundleResource Include="Resources\ic_reply_black%403x.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

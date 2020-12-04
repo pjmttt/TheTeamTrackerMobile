@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 x:Class="TheTeamTracker.Mobile.Views.Entries.UserProgressChecklistsPage"
+			 x:Name="userProgressChecklistsPage">
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand">
+			<Label Text="No checklists found" Style="{DynamicResource TitleStyle}" IsVisible="{Binding NoChecklists}" Margin="10, 0, 0, 0" />
+			<ListView x:Name="UserProgressChecklists"
+				ItemsSource="{Binding UserProgressChecklists}"
+				HasUnevenRows="True"
+				ItemTapped="Handle_ItemTapped"
+				IsPullToRefreshEnabled="True"
+				IsRefreshing="{Binding IsRefreshing}"
+				RefreshCommand="{Binding RefreshChecklistsCommand}"
+				CachingStrategy="RecycleElement">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+								<BoxView BackgroundColor="{Binding Tag2}" WidthRequest="10" VerticalOptions="FillAndExpand"></BoxView>
+								<StackLayout Padding="6" Margin="8, 0, 0, 0" HorizontalOptions="FillAndExpand">
+									<Label Text="{Binding Line1}" Style="{DynamicResource SubtitleStyle}" IsVisible="{Binding Tag3}"></Label>
+									<Label Text="{Binding Line2}" Style="{DynamicResource SubtitleStyle}"></Label>
+								</StackLayout>
+								<c:MenuButton IsVisible="{Binding Path=BindingContext.NotForUser, Source={x:Reference Name=userProgressChecklistsPage}}">
+									<c:MenuButton.MenuItems>
+										<c:MenuButtonItem 
+												Text="Edit"
+												Clicked="Edit_Clicked"
+												CommandParameter="{Binding Tag}">
+										</c:MenuButtonItem>
+										<c:MenuButtonItem 
+												Text="Delete"
+												Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=userProgressChecklistsPage}}"
+												CommandParameter="{Binding Tag}">
+										</c:MenuButtonItem>
+									</c:MenuButton.MenuItems>
+								</c:MenuButton>
+								<c:MenuButton IsVisible="{Binding Path=BindingContext.ForUser, Source={x:Reference Name=userProgressChecklistsPage}}">
+									<c:MenuButton.MenuItems>
+										<c:MenuButtonItem 
+												Text="View"
+												Clicked="Edit_Clicked"
+												CommandParameter="{Binding Tag}">
+										</c:MenuButtonItem>
+									</c:MenuButton.MenuItems>
+								</c:MenuButton>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

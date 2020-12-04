@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheTeamTracker.Mobile.Views.Scheduling.TradeListPage"
+			 xmlns:c="clr-namespace:TheTeamTracker.Mobile.Classes"
+			 x:Name="tradeListPage">
+	<StackLayout HorizontalOptions="FillAndExpand">
+		<Label Text="No trades available" Style="{DynamicResource TitleStyle}" IsVisible="{Binding NoTrades}" Margin="10, 0, 0, 0" />
+		<ListView x:Name="TradesList"
+				ItemsSource="{Binding Trades}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshTradesCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+					  ItemTapped="Handle_ItemTapped"
+				  HasUnevenRows="True"
+				CachingStrategy="RecycleElement">
+
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+							<BoxView BackgroundColor="{Binding Color}" WidthRequest="10" VerticalOptions="FillAndExpand"></BoxView>
+							<StackLayout Padding="6" Margin="8, 0, 0, 0" BackgroundColor="{Binding BackgroundColor}" HorizontalOptions="FillAndExpand">
+								<Label Text="{Binding Schedule.Line1}" IsVisible="{Binding Schedule.Tag2}" Style="{DynamicResource TitleStyle}"></Label>
+								<Label Text="{Binding Schedule.Line2}" Style="{DynamicResource SubtitleStyle}"></Label>
+								<Label Text="{Binding Schedule.Line3}" Style="{DynamicResource SubtitleStyle}"></Label>
+								<Label Text="{Binding InfoColumn.Line1}" Style="{DynamicResource ListItemDetailTextStyle}" Margin="0, 10, 0, 0"></Label>
+							</StackLayout>
+							<c:MenuButton>
+								<c:MenuButton.MenuItems>
+									<c:MenuButtonItem IsVisible="{Binding InfoColumn.Tag}" Text="{Binding AcceptApproveText}" Command="{Binding Path=BindingContext.AcceptApproveCommand, Source={x:Reference Name=tradeListPage}}" 
+													  CommandParameter="{Binding ScheduleTrade}"></c:MenuButtonItem>
+									<c:MenuButtonItem IsVisible="{Binding InfoColumn.Tag}" Text="{Binding DeclineDenyText}" Command="{Binding Path=BindingContext.DeclineDenyCommand, Source={x:Reference Name=tradeListPage}}" 
+													  CommandParameter="{Binding ScheduleTrade}"></c:MenuButtonItem>
+									<c:MenuButtonItem IsVisible="{Binding Tag5}" Text="Delete" Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=tradeListPage}}" 
+													  CommandParameter="{Binding ScheduleTrade}"></c:MenuButtonItem>
+								</c:MenuButton.MenuItems>
+							</c:MenuButton>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+</ContentPage>

@@ -1,0 +1,183 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>TheTeamTracker.Mobile</AssemblyName>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
+    <PackageReference Include="Xam.Plugin.Media" Version="3.1.3" />
+    <PackageReference Include="Xam.Plugin.PopupMenu" Version="1.1.0">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Auth" Version="1.6.0.2" />
+    <PackageReference Include="Xamarin.CustomControls.RepeaterView" Version="1.2.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.469394-pre1" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.2.0" />
+    <PackageReference Include="Plugin.Permissions" Version="2.2.1" />
+    <PackageReference Include="Xamarin.Forms.Extended.InfiniteScrolling" Version="1.0.0-preview2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TheTeamTracker.Mobile.DataLayer\TheTeamTracker.Mobile.DataLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Classes\TTTDatePicker.xaml.cs">
+      <DependentUpon>TTTDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Classes\TTTTimePicker.xaml.cs">
+      <DependentUpon>TTTTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AboutPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Attendance\AttendanceEditPage.xaml.cs">
+      <DependentUpon>AttendanceEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Connect\ContactUsPage.xaml.cs">
+      <DependentUpon>ContactUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Connect\EmailStaffPage.xaml.cs">
+      <DependentUpon>EmailStaffPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Entries\AvailableEntriesPage.xaml.cs">
+      <DependentUpon>AvailableEntriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Entries\EntriesPage.xaml.cs">
+      <DependentUpon>EntriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Entries\AvailableEntryEditPage.xaml.cs">
+      <DependentUpon>AvailableEntryEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Entries\EntrySubtaskView.xaml.cs">
+      <DependentUpon>EntrySubtaskView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Entries\UserProgressChecklistPage.xaml.cs">
+      <DependentUpon>UserProgressChecklistPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Entries\EntryEditPage.xaml.cs">
+      <DependentUpon>EntryEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Maintenance\MaintenanceRequestListPage.xaml.cs">
+      <DependentUpon>MaintenanceRequestListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Maintenance\MaintenanceRequestImagesPage.xaml.cs">
+      <DependentUpon>MaintenanceRequestImagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Maintenance\MaintenanceRequestImagePage.xaml.cs">
+      <DependentUpon>MaintenanceRequestImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Maintenance\MaintenanceRequestReplyPage.xaml.cs">
+      <DependentUpon>MaintenanceRequestReplyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Maintenance\MaintenanceRequestEditPage.xaml.cs">
+      <DependentUpon>MaintenanceRequestEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Maintenance\MaintenanceRequestImagesView.xaml.cs">
+      <DependentUpon>MaintenanceRequestImagesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\ManageSchedulePage.xaml.cs">
+      <DependentUpon>ManageSchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\DailySchedulePage.xaml.cs">
+      <DependentUpon>DailySchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\HoursEditPage.xaml.cs">
+      <DependentUpon>HoursEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\HoursPage.xaml.cs">
+      <DependentUpon>HoursPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\UserAvailabilityEditPage.xaml.cs">
+      <DependentUpon>UserAvailabilityEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Entries\UserProgressChecklistsPage.xaml.cs">
+      <DependentUpon>UserProgressChecklistsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\UserAvailabilityListPage.xaml.cs">
+      <DependentUpon>UserAvailabilityListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\TradeSelectPage.xaml.cs">
+      <DependentUpon>TradeSelectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\TradeBoardPage.xaml.cs">
+      <DependentUpon>TradeBoardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\MySchedulePage.xaml.cs">
+      <DependentUpon>MySchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Scheduling\LeaveRequestEditPage.xaml.cs">
+      <DependentUpon>LeaveRequestEditPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Entries\EntrySubtaskCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Classes\TextArea.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Classes\TTTDateNavigator.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Attendance\AttendanceListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Attendance\AttendanceEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Connect\EmailStaffPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Entries\EntryEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Entries\EntrySubtaskEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Maintenance\MaintenanceRequestImagePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Scheduling\LeaveRequestsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Inventory\InventoryEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Inventory\InventoryListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MainPageMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Maintenance\MaintenanceRequestListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Maintenance\MaintenanceRequestEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Scheduling\BulkSchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Scheduling\MySchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Scheduling\TradeListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Scheduling\TradeViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

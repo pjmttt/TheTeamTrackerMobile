@@ -1,0 +1,20 @@
+﻿C:\Program Files\Java\jdk1.8.0_131\bin>keytool -keypasswd -alias "test" -keypass "test123" -new "Cor!n123" -keystore "C:\Projects\TheTeamTracker\Mobile\TheTeamTracker.Mobile.Android\TheTeamTracker.keystore"
+Enter keystore password:
+
+C:\Program Files\Java\jdk1.8.0_131\bin>keytool -changealias -alias "test" -destalias "The Team Tracker" -keystore "C:\Projects\TheTeamTracker\Mobile\TheTeamTracker.Mobile.Android\TheTeamTracker.keystore"
+Enter keystore password:
+Enter key password for <test>
+
+C:\Program Files\Java\jdk1.8.0_131\bin>keytool -storepasswd -new Cor!n123 -keystore "C:\Projects\TheTeamTracker\Mobile\TheTeamTracker.Mobile.Android\TheTeamTracker.keystore"
+Enter keystore password:
+
+C:\Program Files\Java\jdk1.8.0_131\bin>keytool -list -keystore "C:\Projects\TheTeamTracker\Mobile\TheTeamTracker.Mobile.Android\TheTeamTracker.keystore"
+Enter keystore password:
+
+Keystore type: JKS
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+the team tracker, Mar 29, 2018, PrivateKeyEntry,
+Certificate fingerprint (SHA1): AA:07:30:64:D3:18:72:C9:17:2B:80:61:F1:08:3F:26:61:D9:AD:DC
